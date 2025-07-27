@@ -7,7 +7,7 @@ import './App.css';
 // API Base URL
 const API_BASE_URL = 'https://us-central1-pulsebengaluru-backend.cloudfunctions.net/api';
 
-// Simple Login Component
+// Enhanced Login Component with modern design
 const SimpleLogin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -28,45 +28,182 @@ const SimpleLogin = () => {
   };
 
   return (
-    <div style={{ padding: '2rem', maxWidth: '400px', margin: '0 auto', fontFamily: 'Arial, sans-serif' }}>
-      <h1>🎯 Khabri Login</h1>
-      <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          style={{ padding: '0.5rem', borderRadius: '4px', border: '1px solid #ccc' }}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          style={{ padding: '0.5rem', borderRadius: '4px', border: '1px solid #ccc' }}
-          required
-        />
-        <button
-          type="submit"
-          disabled={loading}
-          style={{
-            padding: '0.75rem',
-            backgroundColor: '#007bff',
-            color: 'white',
-            border: 'none',
-            borderRadius: '4px',
-            cursor: loading ? 'not-allowed' : 'pointer'
-          }}
-        >
-          {loading ? 'Logging in...' : 'Login'}
-        </button>
-      </form>
+    <div style={{ 
+      minHeight: '100vh',
+      background: 'linear-gradient(135deg, #4285f4 0%, #34a853 25%, #fbbc04 75%, #ea4335 100%)',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '2rem',
+      fontFamily: "'Google Sans', 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    }}>
+      <div style={{
+        background: 'rgba(255, 255, 255, 0.95)',
+        backdropFilter: 'blur(20px)',
+        borderRadius: '24px',
+        padding: '3rem',
+        width: '100%',
+        maxWidth: '400px',
+        boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+        border: '1px solid rgba(255, 255, 255, 0.2)',
+        animation: 'slideUp 0.6s ease-out'
+      }}>
+        <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+          <div style={{ 
+            fontSize: '3rem', 
+            marginBottom: '1rem',
+            animation: 'bounce 2s infinite'
+          }}>🎯</div>
+          <h1 style={{ 
+            fontSize: '2.5rem',
+            background: 'linear-gradient(45deg, #4285f4 0%, #ea4335 25%, #fbbc04 50%, #34a853 75%, #4285f4 100%)',
+            backgroundClip: 'text',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            margin: '0 0 0.5rem 0',
+            fontWeight: '700'
+          }}>Khabri</h1>
+          <p style={{ 
+            color: '#6b7280',
+            fontSize: '1.1rem',
+            margin: 0,
+            fontWeight: '500'
+          }}>Your Civic Voice Matters</p>
+        </div>
+        
+        <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+          <div style={{ position: 'relative' }}>
+            <input
+              type="email"
+              placeholder="Email Address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              style={{ 
+                width: '100%',
+                padding: '1rem 1.25rem',
+                borderRadius: '12px',
+                border: '2px solid #e5e7eb',
+                fontSize: '1rem',
+                transition: 'all 0.3s ease',
+                backgroundColor: '#f9fafb',
+                outline: 'none',
+                boxSizing: 'border-box'
+              }}
+                             onFocus={(e) => {
+                 e.target.style.borderColor = '#4285f4';
+                 e.target.style.backgroundColor = '#ffffff';
+                 e.target.style.transform = 'translateY(-2px)';
+                 e.target.style.boxShadow = '0 10px 25px -5px rgba(66, 133, 244, 0.2)';
+               }}
+               onBlur={(e) => {
+                 e.target.style.borderColor = '#e5e7eb';
+                 e.target.style.backgroundColor = '#f9fafb';
+                 e.target.style.transform = 'translateY(0)';
+                 e.target.style.boxShadow = 'none';
+               }}
+               required
+             />
+           </div>
+           
+           <div style={{ position: 'relative' }}>
+             <input
+               type="password"
+               placeholder="Password"
+               value={password}
+               onChange={(e) => setPassword(e.target.value)}
+               style={{ 
+                 width: '100%',
+                 padding: '1rem 1.25rem',
+                 borderRadius: '12px',
+                 border: '2px solid #e5e7eb',
+                 fontSize: '1rem',
+                 transition: 'all 0.3s ease',
+                 backgroundColor: '#f9fafb',
+                 outline: 'none',
+                 boxSizing: 'border-box'
+               }}
+               onFocus={(e) => {
+                 e.target.style.borderColor = '#4285f4';
+                 e.target.style.backgroundColor = '#ffffff';
+                 e.target.style.transform = 'translateY(-2px)';
+                 e.target.style.boxShadow = '0 10px 25px -5px rgba(66, 133, 244, 0.2)';
+               }}
+              onBlur={(e) => {
+                e.target.style.borderColor = '#e5e7eb';
+                e.target.style.backgroundColor = '#f9fafb';
+                e.target.style.transform = 'translateY(0)';
+                e.target.style.boxShadow = 'none';
+              }}
+              required
+            />
+          </div>
+          
+          <button
+            type="submit"
+            disabled={loading}
+            style={{
+              padding: '1rem 2rem',
+              background: loading ? '#9ca3af' : 'linear-gradient(135deg, #4285f4 0%, #34a853 100%)',
+              color: 'white',
+              border: 'none',
+              borderRadius: '12px',
+              cursor: loading ? 'not-allowed' : 'pointer',
+              fontSize: '1.1rem',
+              fontWeight: '600',
+              transition: 'all 0.3s ease',
+              transform: loading ? 'none' : 'translateY(0)',
+              boxShadow: loading ? 'none' : '0 10px 25px -5px rgba(66, 133, 244, 0.4)'
+            }}
+            onMouseEnter={(e) => {
+              if (!loading) {
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                                 e.currentTarget.style.boxShadow = '0 15px 35px -5px rgba(66, 133, 244, 0.5)';
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (!loading) {
+                e.currentTarget.style.transform = 'translateY(0)';
+                                 e.currentTarget.style.boxShadow = '0 10px 25px -5px rgba(66, 133, 244, 0.4)';
+              }
+            }}
+          >
+            {loading ? (
+              <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
+                <span style={{ animation: 'spin 1s linear infinite' }}>⏳</span>
+                Signing in...
+              </span>
+            ) : (
+              'Sign In'
+            )}
+          </button>
+        </form>
+        
+        <div style={{ 
+          textAlign: 'center', 
+          marginTop: '2rem',
+          padding: '1.5rem',
+                     backgroundColor: '#e8f0fe',
+           borderRadius: '12px',
+           border: '1px solid #4285f4'
+        }}>
+          <p style={{ 
+            margin: '0 0 0.5rem 0',
+                         color: '#4285f4',
+            fontWeight: '600',
+            fontSize: '0.9rem'
+          }}>🌟 Demo Credentials</p>
+          <p style={{ 
+            margin: 0,
+            color: '#6b7280',
+            fontSize: '0.8rem'
+          }}>Any valid email format works!</p>
+        </div>
+      </div>
     </div>
   );
 };
 
-// Simple Dashboard
+// Enhanced Dashboard with modern card-based design
 const SimpleDashboard = () => {
   const { currentUser, logout } = useAuth();
   const [activeTab, setActiveTab] = useState<'report' | 'query' | 'aggregated'>('report');
@@ -79,83 +216,231 @@ const SimpleDashboard = () => {
   };
 
   return (
-    <div style={{ padding: '2rem', fontFamily: 'Arial, sans-serif' }}>
-      {/* Header */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
-        <h1>🏠 Khabri Dashboard</h1>
-        <button
-          onClick={handleLogout}
-          style={{
-            padding: '0.5rem 1rem',
-            backgroundColor: '#dc3545',
-            color: 'white',
-            border: 'none',
-            borderRadius: '4px',
-            cursor: 'pointer'
-          }}
-        >
-          Logout
-        </button>
-      </div>
+    <div style={{ 
+      minHeight: '100vh',
+      background: 'linear-gradient(135deg, #f8f9fa 0%, #e8f0fe 50%, #fef7e0 100%)',
+      fontFamily: "'Google Sans', 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    }}>
+      {/* Enhanced Header */}
+      <header style={{ 
+        background: 'rgba(255, 255, 255, 0.95)',
+        backdropFilter: 'blur(20px)',
+        borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
+        padding: '1.5rem 2rem',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        boxShadow: '0 4px 20px rgba(0, 0, 0, 0.05)',
+        position: 'sticky',
+        top: 0,
+        zIndex: 100
+      }}>
+        <div className="header-content" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <div style={{ 
+            fontSize: '2rem',
+            animation: 'bounce 2s infinite'
+          }}>🏠</div>
+                     <h1 className="header-title" style={{ 
+             margin: 0,
+             fontSize: '2rem',
+             background: 'linear-gradient(135deg, #4285f4 0%, #ea4335 25%, #fbbc04 50%, #34a853 75%)',
+             backgroundClip: 'text',
+             WebkitBackgroundClip: 'text',
+             WebkitTextFillColor: 'transparent',
+             fontWeight: '700'
+           }}>Khabri Dashboard</h1>
+        </div>
+        
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                     <div style={{
+             padding: '0.5rem 1rem',
+             backgroundColor: '#e8f0fe',
+             borderRadius: '20px',
+             border: '1px solid #4285f4'
+           }}>
+             <span style={{ color: '#4285f4', fontWeight: '600', fontSize: '0.9rem' }}>
+              👤 {currentUser?.displayName}
+            </span>
+          </div>
+          
+          <button
+            onClick={handleLogout}
+            style={{
+              padding: '0.75rem 1.5rem',
+              background: 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)',
+              color: 'white',
+              border: 'none',
+              borderRadius: '12px',
+              cursor: 'pointer',
+              fontWeight: '600',
+              transition: 'all 0.3s ease',
+              fontSize: '0.9rem'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-2px)';
+              e.currentTarget.style.boxShadow = '0 10px 25px -5px rgba(239, 68, 68, 0.4)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = 'none';
+            }}
+          >
+            🚪 Logout
+          </button>
+        </div>
+      </header>
 
-      {/* User Info */}
-      <div style={{ padding: '1rem', backgroundColor: '#f8f9fa', borderRadius: '8px', marginBottom: '2rem' }}>
-        <h3>Welcome, {currentUser?.displayName}!</h3>
-        <p>📧 {currentUser?.email}</p>
-      </div>
+      <div className="dashboard-container" style={{ 
+        padding: '2rem',
+        maxWidth: '1400px',
+        margin: '0 auto',
+        width: '100%'
+      }}>
+        {/* Welcome Card */}
+        <div className="welcome-card" style={{ 
+          background: 'linear-gradient(135deg, #4285f4 0%, #34a853 50%, #fbbc04 100%)',
+          borderRadius: '20px',
+          padding: '3rem',
+          marginBottom: '2rem',
+          color: 'white',
+          boxShadow: '0 20px 40px -10px rgba(66, 133, 244, 0.3)',
+          position: 'relative',
+          overflow: 'hidden'
+        }}>
+          <div style={{
+            position: 'absolute',
+            top: '-50px',
+            right: '-50px',
+            width: '150px',
+            height: '150px',
+            background: 'rgba(255, 255, 255, 0.1)',
+            borderRadius: '50%',
+            animation: 'float 6s ease-in-out infinite'
+          }}></div>
+          
+          <div style={{ 
+            display: 'grid',
+            gridTemplateColumns: '1fr auto',
+            gap: '2rem',
+            alignItems: 'center'
+          }}>
+            <div>
+              <h2 style={{ 
+                margin: '0 0 1rem 0',
+                fontSize: '2.5rem',
+                fontWeight: '700'
+              }}>Welcome back, {currentUser?.displayName}! 👋</h2>
+              <p style={{ 
+                margin: '0 0 0.5rem 0',
+                fontSize: '1.2rem',
+                opacity: 0.9,
+                fontWeight: '400'
+              }}>📧 {currentUser?.email}</p>
+              <p style={{ 
+                margin: '0',
+                fontSize: '1.1rem',
+                opacity: 0.8
+              }}>Ready to make your community better? Report incidents or check the latest updates.</p>
+            </div>
+            
+            <div style={{
+              background: 'rgba(255, 255, 255, 0.15)',
+              borderRadius: '16px',
+              padding: '2rem',
+              textAlign: 'center',
+              backdropFilter: 'blur(10px)'
+            }}>
+              <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>🏙️</div>
+              <p style={{ margin: 0, fontSize: '0.9rem', opacity: 0.9 }}>Civic Dashboard</p>
+            </div>
+          </div>
+        </div>
 
-      {/* Tab Navigation */}
-      <div style={{ display: 'flex', gap: '1rem', marginBottom: '2rem' }}>
-        <button
-          onClick={() => setActiveTab('report')}
-          style={{
-            padding: '0.75rem 1.5rem',
-            backgroundColor: activeTab === 'report' ? '#007bff' : '#6c757d',
-            color: 'white',
-            border: 'none',
-            borderRadius: '4px',
-            cursor: 'pointer'
-          }}
-        >
-          📝 Report Incident
-        </button>
-        <button
-          onClick={() => setActiveTab('query')}
-          style={{
-            padding: '0.75rem 1.5rem',
-            backgroundColor: activeTab === 'query' ? '#007bff' : '#6c757d',
-            color: 'white',
-            border: 'none',
-            borderRadius: '4px',
-            cursor: 'pointer'
-          }}
-        >
-          🔍 View Incidents
-        </button>
-        <button
-          onClick={() => setActiveTab('aggregated')}
-          style={{
-            padding: '0.75rem 1.5rem',
-            backgroundColor: activeTab === 'aggregated' ? '#007bff' : '#6c757d',
-            color: 'white',
-            border: 'none',
-            borderRadius: '4px',
-            cursor: 'pointer'
-          }}
-        >
-          📊 Global Aggregated Reports
-        </button>
-      </div>
+        {/* Enhanced Tab Navigation */}
+        <div className="tab-navigation" style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+          gap: '1.5rem', 
+          marginBottom: '3rem'
+        }}>
+          {[
+            { key: 'report', icon: '📝', label: 'Report Incident', color: '#34a853', desc: 'Submit new civic issues' },
+            { key: 'query', icon: '🔍', label: 'View Incidents', color: '#4285f4', desc: 'Browse reported incidents' },
+            { key: 'aggregated', icon: '📊', label: 'Global Reports', color: '#ea4335', desc: 'View analytics & trends' }
+          ].map((tab) => (
+            <button
+              key={tab.key}
+              onClick={() => setActiveTab(tab.key as any)}
+              style={{
+                padding: '2rem',
+                background: activeTab === tab.key 
+                  ? `linear-gradient(135deg, ${tab.color} 0%, ${tab.color}dd 100%)`
+                  : 'rgba(255, 255, 255, 0.9)',
+                color: activeTab === tab.key ? 'white' : '#374151',
+                border: activeTab === tab.key ? 'none' : '2px solid #e5e7eb',
+                borderRadius: '20px',
+                cursor: 'pointer',
+                fontWeight: '600',
+                fontSize: '1.1rem',
+                transition: 'all 0.3s ease',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: '1rem',
+                backdropFilter: 'blur(10px)',
+                boxShadow: activeTab === tab.key 
+                  ? `0 15px 35px -5px ${tab.color}40`
+                  : '0 8px 25px rgba(0, 0, 0, 0.08)',
+                textAlign: 'center'
+              }}
+              onMouseEnter={(e) => {
+                if (activeTab !== tab.key) {
+                  e.currentTarget.style.transform = 'translateY(-8px)';
+                  e.currentTarget.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.12)';
+                  e.currentTarget.style.borderColor = tab.color;
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (activeTab !== tab.key) {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.08)';
+                  e.currentTarget.style.borderColor = '#e5e7eb';
+                }
+              }}
+            >
+              <span style={{ fontSize: '2.5rem' }}>{tab.icon}</span>
+              <div>
+                <div style={{ fontWeight: '700', marginBottom: '0.5rem' }}>{tab.label}</div>
+                <div style={{ 
+                  fontSize: '0.9rem', 
+                  opacity: activeTab === tab.key ? 0.9 : 0.7,
+                  fontWeight: '400'
+                }}>{tab.desc}</div>
+              </div>
+            </button>
+          ))}
+        </div>
 
-      {/* Content Area */}
-      {activeTab === 'report' && <ReportSection onReportSubmit={(report) => setReports([...reports, report])} />}
-      {activeTab === 'query' && <QuerySection reports={reports} />}
-      {activeTab === 'aggregated' && <AggregatedReportsSection />}
+        {/* Enhanced Content Area */}
+        <div className="content-area" style={{
+          background: 'rgba(255, 255, 255, 0.95)',
+          borderRadius: '24px',
+          padding: '3rem',
+          backdropFilter: 'blur(20px)',
+          border: '1px solid rgba(255, 255, 255, 0.2)',
+          boxShadow: '0 25px 50px rgba(0, 0, 0, 0.08)',
+          minHeight: '600px'
+        }}>
+          {activeTab === 'report' && <ReportSection onReportSubmit={(report) => setReports([...reports, report])} />}
+          {activeTab === 'query' && <QuerySection reports={reports} />}
+          {activeTab === 'aggregated' && <AggregatedReportsSection />}
+        </div>
+      </div>
     </div>
   );
 };
 
-// Report Section Component
+// Enhanced Report Section Component with modern design
 const ReportSection = ({ onReportSubmit }: { onReportSubmit: (report: any) => void }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -164,6 +449,7 @@ const ReportSection = ({ onReportSubmit }: { onReportSubmit: (report: any) => vo
   const [location, setLocation] = useState('MG Road');
   const [submitting, setSubmitting] = useState(false);
   const [selectedFiles, setSelectedFiles] = useState<FileList | null>(null);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -247,11 +533,16 @@ const ReportSection = ({ onReportSubmit }: { onReportSubmit: (report: any) => vo
       };
       
       onReportSubmit(localReport);
-      alert('Incident reported successfully to backend!');
+      setShowSuccess(true);
       
       // Reset form
       setTitle('');
       setDescription('');
+      setSelectedFiles(null);
+      
+      // Hide success message after 5 seconds
+      setTimeout(() => setShowSuccess(false), 5000);
+      
     } catch (error) {
       console.error('Error submitting report:', error);
       alert('Failed to submit report. Please try again.');
@@ -260,73 +551,187 @@ const ReportSection = ({ onReportSubmit }: { onReportSubmit: (report: any) => vo
     setSubmitting(false);
   };
 
+  const inputStyle = {
+    width: '100%',
+    padding: '1rem 1.25rem',
+    borderRadius: '12px',
+    border: '2px solid #e5e7eb',
+    fontSize: '1rem',
+    transition: 'all 0.3s ease',
+    backgroundColor: '#f9fafb',
+    outline: 'none',
+    boxSizing: 'border-box' as const
+  };
+
+  const focusStyle = {
+    borderColor: '#34a853',
+    backgroundColor: '#ffffff',
+    transform: 'translateY(-2px)',
+    boxShadow: '0 10px 25px -5px rgba(52, 168, 83, 0.2)'
+  };
+
   return (
-    <div style={{ maxWidth: '600px' }}>
-      <h2>📝 Report New Incident</h2>
-      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-        <input
-          type="text"
-          placeholder="Incident Title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          style={{ padding: '0.5rem', borderRadius: '4px', border: '1px solid #ccc' }}
-          required
-        />
-        
-        <select
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-          style={{ padding: '0.5rem', borderRadius: '4px', border: '1px solid #ccc' }}
-        >
-          <option value="pothole">🛣️ Pothole</option>
-          <option value="garbage">🗑️ Garbage</option>
-          <option value="water logging">🌊 Water Logging</option>
-          <option value="dog bites">🐕 Dog Bites</option>
-          <option value="electricity cut">⚡ Electricity Cut</option>
-        </select>
-        
-        <select
-          value={location}
-          onChange={(e) => setLocation(e.target.value)}
-          style={{ padding: '0.5rem', borderRadius: '4px', border: '1px solid #ccc' }}
-        >
-          <option value="MG Road">📍 MG Road</option>
-          <option value="Koramangala">📍 Koramangala</option>
-          <option value="HSR Layout">📍 HSR Layout</option>
-          <option value="Indiranagar">📍 Indiranagar</option>
-          <option value="Whitefield">📍 Whitefield</option>
-          <option value="Jayanagar">📍 Jayanagar</option>
-          <option value="BTM Layout">📍 BTM Layout</option>
-          <option value="Electronic City">📍 Electronic City</option>
-        </select>
-        
-        <select
-          value={severity}
-          onChange={(e) => setSeverity(e.target.value)}
-          style={{ padding: '0.5rem', borderRadius: '4px', border: '1px solid #ccc' }}
-        >
-          <option value="low">🟢 Low</option>
-          <option value="medium">🟡 Medium</option>
-          <option value="high">🔴 High</option>
-        </select>
-        
-        <textarea
-          placeholder="Describe the incident in detail..."
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          rows={4}
-          style={{ padding: '0.5rem', borderRadius: '4px', border: '1px solid #ccc', resize: 'vertical' }}
-          required
-        />
-        
-        {/* Photo/Video Upload Section */}
-        <div style={{ 
-          padding: '1rem', 
-          background: '#f8f9fa', 
-          borderRadius: '6px', 
-          border: '2px dashed #007bff'
+    <div style={{ maxWidth: '1200px', margin: '0 auto', animation: 'fadeIn 0.6s ease-out' }}>
+      <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+        <h2 className="section-title" style={{ 
+          fontSize: '3rem',
+          margin: '0 0 1rem 0',
+          background: 'linear-gradient(135deg, #34a853 0%, #137333 100%)',
+          backgroundClip: 'text',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          fontWeight: '700'
+        }}>📝 Report New Incident</h2>
+        <p style={{ 
+          color: '#6b7280',
+          fontSize: '1.3rem',
+          margin: 0,
+          maxWidth: '600px',
+          marginLeft: 'auto',
+          marginRight: 'auto'
+        }}>Help make your community better by reporting civic issues</p>
+      </div>
+
+      {showSuccess && (
+        <div style={{
+          background: 'linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%)',
+          color: '#065f46',
+          padding: '1.5rem',
+          borderRadius: '16px',
+          marginBottom: '2rem',
+          textAlign: 'center',
+          border: '2px solid #10b981',
+          animation: 'slideUp 0.5s ease-out'
         }}>
-          <h4 style={{ margin: '0 0 0.5rem 0', color: '#007bff' }}>📷 Attach Photos/Videos *</h4>
+          <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>🎉</div>
+          <strong>Incident reported successfully!</strong>
+          <p style={{ margin: '0.5rem 0 0 0', opacity: 0.8 }}>
+            Your report has been submitted to the backend system.
+          </p>
+        </div>
+      )}
+
+      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+        {/* Top row - Title spans full width */}
+        <div>
+          <label style={{ display: 'block', fontWeight: '600', color: '#374151', marginBottom: '0.75rem', fontSize: '1.1rem' }}>
+            📝 Incident Title
+          </label>
+          <input
+            type="text"
+            placeholder="Brief, descriptive title for the incident"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            style={inputStyle}
+            onFocus={(e) => Object.assign(e.target.style, focusStyle)}
+            onBlur={(e) => Object.assign(e.target.style, inputStyle)}
+            required
+          />
+        </div>
+
+        {/* Second row - Three columns for better desktop layout */}
+        <div className="form-three-columns" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '2rem' }}>
+          <div>
+            <label style={{ display: 'block', fontWeight: '600', color: '#374151', marginBottom: '0.75rem', fontSize: '1.1rem' }}>
+              🏷️ Category
+            </label>
+            <select
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              style={{...inputStyle, cursor: 'pointer'}}
+              onFocus={(e) => Object.assign(e.target.style, focusStyle)}
+              onBlur={(e) => Object.assign(e.target.style, inputStyle)}
+            >
+              <option value="pothole">🛣️ Pothole</option>
+              <option value="garbage">🗑️ Garbage</option>
+              <option value="water logging">🌊 Water Logging</option>
+              <option value="dog bites">🐕 Dog Bites</option>
+              <option value="electricity cut">⚡ Electricity Cut</option>
+            </select>
+          </div>
+          
+          <div>
+            <label style={{ display: 'block', fontWeight: '600', color: '#374151', marginBottom: '0.75rem', fontSize: '1.1rem' }}>
+              📍 Location
+            </label>
+            <select
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+              style={{...inputStyle, cursor: 'pointer'}}
+              onFocus={(e) => Object.assign(e.target.style, focusStyle)}
+              onBlur={(e) => Object.assign(e.target.style, inputStyle)}
+            >
+              <option value="MG Road">📍 MG Road</option>
+              <option value="Koramangala">📍 Koramangala</option>
+              <option value="HSR Layout">📍 HSR Layout</option>
+              <option value="Indiranagar">📍 Indiranagar</option>
+              <option value="Whitefield">📍 Whitefield</option>
+              <option value="Jayanagar">📍 Jayanagar</option>
+              <option value="BTM Layout">📍 BTM Layout</option>
+              <option value="Electronic City">📍 Electronic City</option>
+            </select>
+          </div>
+          
+          <div>
+            <label style={{ display: 'block', fontWeight: '600', color: '#374151', marginBottom: '0.75rem', fontSize: '1.1rem' }}>
+              ⚡ Severity
+            </label>
+            <select
+              value={severity}
+              onChange={(e) => setSeverity(e.target.value)}
+              style={{...inputStyle, cursor: 'pointer'}}
+              onFocus={(e) => Object.assign(e.target.style, focusStyle)}
+              onBlur={(e) => Object.assign(e.target.style, inputStyle)}
+            >
+              <option value="low">🟢 Low</option>
+              <option value="medium">🟡 Medium</option>
+              <option value="high">🔴 High</option>
+            </select>
+          </div>
+        </div>
+        
+        {/* Description row */}
+        <div>
+          <label style={{ display: 'block', fontWeight: '600', color: '#374151', marginBottom: '0.75rem', fontSize: '1.1rem' }}>
+            📝 Description
+          </label>
+          <textarea
+            placeholder="Provide a detailed description of the incident, including any relevant context or urgency..."
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            rows={5}
+            style={{...inputStyle, minHeight: '140px', resize: 'vertical', fontFamily: 'inherit'}}
+            onFocus={(e) => Object.assign(e.target.style, focusStyle)}
+            onBlur={(e) => Object.assign(e.target.style, inputStyle)}
+            required
+          />
+        </div>
+        
+        {/* Enhanced Photo/Video Upload Section */}
+        <div className="file-upload-section" style={{ 
+          padding: '3rem', 
+          background: 'linear-gradient(135deg, #e6f4ea 0%, #ceead6 100%)', 
+          borderRadius: '20px', 
+          border: '3px dashed #34a853',
+          textAlign: 'center',
+          transition: 'all 0.3s ease',
+          cursor: 'pointer'
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.borderColor = '#137333';
+          e.currentTarget.style.transform = 'translateY(-4px)';
+          e.currentTarget.style.boxShadow = '0 15px 35px rgba(52, 168, 83, 0.15)';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.borderColor = '#34a853';
+          e.currentTarget.style.transform = 'translateY(0)';
+          e.currentTarget.style.boxShadow = 'none';
+        }}>
+          <div style={{ fontSize: '4rem', marginBottom: '1.5rem' }}>📷</div>
+          <h3 style={{ margin: '0 0 1.5rem 0', color: '#34a853', fontWeight: '700', fontSize: '1.5rem' }}>Attach Photos/Videos *</h3>
+          <p style={{ margin: '0 0 2rem 0', color: '#6b7280', fontSize: '1.1rem', maxWidth: '500px', marginLeft: 'auto', marginRight: 'auto' }}>
+            Upload clear photos or videos that show the incident. Multiple files help provide better context.
+          </p>
           <input
             type="file"
             multiple
@@ -334,43 +739,95 @@ const ReportSection = ({ onReportSubmit }: { onReportSubmit: (report: any) => vo
             onChange={(e) => setSelectedFiles(e.target.files)}
             style={{
               width: '100%',
-              padding: '0.5rem',
-              borderRadius: '4px',
-              border: '1px solid #ccc',
-              background: 'white'
+              maxWidth: '600px',
+              padding: '1.5rem',
+              borderRadius: '16px',
+              border: '3px solid #34a853',
+              background: 'white',
+              fontSize: '1.1rem',
+              cursor: 'pointer',
+              margin: '0 auto',
+              display: 'block'
             }}
             required
           />
-          {selectedFiles && selectedFiles.length > 0 && (
-            <p style={{ margin: '0.5rem 0 0 0', color: '#28a745', fontSize: '0.9rem' }}>
-              ✅ {selectedFiles.length} file(s) selected
+          {selectedFiles && selectedFiles.length > 0 ? (
+            <div style={{ 
+              marginTop: '2rem',
+              padding: '1.5rem',
+              backgroundColor: 'white',
+              borderRadius: '16px',
+                             border: '2px solid #34a853',
+               maxWidth: '600px',
+               margin: '2rem auto 0'
+             }}>
+               <p style={{ margin: '0', color: '#137333', fontSize: '1.3rem', fontWeight: '700' }}>
+                ✅ {selectedFiles.length} file(s) selected
+              </p>
+              <p style={{ margin: '0.75rem 0 0 0', color: '#6b7280', fontSize: '1rem' }}>
+                Ready to upload with your report!
+              </p>
+            </div>
+          ) : (
+            <p style={{ margin: '2rem 0 0 0', color: '#6b7280', fontSize: '1rem', fontStyle: 'italic' }}>
+              * At least one photo or video is required for report submission
             </p>
           )}
-          <p style={{ margin: '0.5rem 0 0 0', color: '#6c757d', fontSize: '0.8rem' }}>
-            * At least one photo or video is required for report submission
-          </p>
         </div>
         
-        <button
-          type="submit"
-          disabled={submitting}
-          style={{
-            padding: '0.75rem',
-            backgroundColor: '#28a745',
-            color: 'white',
-            border: 'none',
-            borderRadius: '4px',
-            cursor: submitting ? 'not-allowed' : 'pointer'
-          }}
-        >
-          {submitting ? 'Submitting...' : 'Submit Report'}
-        </button>
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1rem' }}>
+          <button
+            className="submit-button"
+            type="submit"
+            disabled={submitting}
+            style={{
+              padding: '1.5rem 4rem',
+                             background: submitting 
+                 ? 'linear-gradient(135deg, #9ca3af 0%, #6b7280 100%)'
+                 : 'linear-gradient(135deg, #34a853 0%, #137333 100%)',
+              color: 'white',
+              border: 'none',
+              borderRadius: '20px',
+              cursor: submitting ? 'not-allowed' : 'pointer',
+              fontSize: '1.3rem',
+              fontWeight: '700',
+              transition: 'all 0.3s ease',
+                             boxShadow: submitting ? 'none' : '0 15px 35px -5px rgba(52, 168, 83, 0.4)',
+              textTransform: 'uppercase' as const,
+              letterSpacing: '1px',
+              minWidth: '280px'
+            }}
+            onMouseEnter={(e) => {
+              if (!submitting) {
+                e.currentTarget.style.transform = 'translateY(-4px)';
+                                 e.currentTarget.style.boxShadow = '0 20px 45px -5px rgba(52, 168, 83, 0.5)';
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (!submitting) {
+                e.currentTarget.style.transform = 'translateY(0)';
+                                 e.currentTarget.style.boxShadow = '0 15px 35px -5px rgba(52, 168, 83, 0.4)';
+              }
+            }}
+          >
+            {submitting ? (
+              <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem' }}>
+                <span style={{ animation: 'spin 1s linear infinite', fontSize: '1.8rem' }}>⏳</span>
+                Submitting Report...
+              </span>
+            ) : (
+              <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem' }}>
+                🚀 Submit Report
+              </span>
+            )}
+          </button>
+        </div>
       </form>
     </div>
   );
 };
 
-// Query Section Component
+// Enhanced Query Section Component with modern design
 const QuerySection = ({ reports }: { reports: any[] }) => {
   const [selectedLocation, setSelectedLocation] = useState('all');
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -445,90 +902,322 @@ const QuerySection = ({ reports }: { reports: any[] }) => {
   
   const getSeverityColor = (severity: string) => {
     switch (severity) {
-      case 'high': return '#dc3545';
-      case 'medium': return '#ffc107';
-      case 'low': return '#28a745';
-      default: return '#6c757d';
+      case 'high': return '#ef4444';
+      case 'medium': return '#f59e0b';
+      case 'low': return '#10b981';
+      default: return '#6b7280';
     }
   };
 
+  const getSeverityBg = (severity: string) => {
+    switch (severity) {
+      case 'high': return 'linear-gradient(135deg, #fee2e2 0%, #fecaca 100%)';
+      case 'medium': return 'linear-gradient(135deg, #fef3c7 0%, #fde68a 100%)';
+      case 'low': return 'linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%)';
+      default: return 'linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%)';
+    }
+  };
+
+  const selectStyle = {
+    padding: '1rem 1.25rem',
+    borderRadius: '12px',
+    border: '2px solid #e5e7eb',
+    fontSize: '1rem',
+    backgroundColor: '#f9fafb',
+    cursor: 'pointer',
+    transition: 'all 0.3s ease',
+    outline: 'none',
+    flex: 1
+  };
+
   return (
-    <div>
-      <h2>🔍 View Incidents</h2>
-      
-      {/* Filters */}
-      <div style={{ display: 'flex', gap: '1rem', marginBottom: '2rem' }}>
-        <select
-          value={selectedLocation}
-          onChange={(e) => setSelectedLocation(e.target.value)}
-          style={{ padding: '0.5rem', borderRadius: '4px', border: '1px solid #ccc' }}
-        >
-          <option value="all">All Locations</option>
-          <option value="MG Road">📍 MG Road</option>
-          <option value="Koramangala">📍 Koramangala</option>
-          <option value="HSR Layout">📍 HSR Layout</option>
-          <option value="Indiranagar">📍 Indiranagar</option>
-          <option value="Whitefield">📍 Whitefield</option>
-          <option value="Jayanagar">📍 Jayanagar</option>
-          <option value="BTM Layout">📍 BTM Layout</option>
-          <option value="Electronic City">📍 Electronic City</option>
-        </select>
-        
-        <select
-          value={selectedCategory}
-          onChange={(e) => setSelectedCategory(e.target.value)}
-          style={{ padding: '0.5rem', borderRadius: '4px', border: '1px solid #ccc' }}
-        >
-          <option value="all">All Categories</option>
-          <option value="pothole">🛣️ Pothole</option>
-          <option value="garbage">🗑️ Garbage</option>
-          <option value="water logging">🌊 Water Logging</option>
-          <option value="dog bites">🐕 Dog Bites</option>
-          <option value="electricity cut">⚡ Electricity Cut</option>
-        </select>
+    <div style={{ maxWidth: '1200px', margin: '0 auto', animation: 'fadeIn 0.6s ease-out' }}>
+      <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+        <h2 className="section-title" style={{ 
+          fontSize: '3rem',
+          margin: '0 0 1rem 0',
+          background: 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)',
+          backgroundClip: 'text',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          fontWeight: '700'
+        }}>🔍 View Incidents</h2>
+        <p style={{ 
+          color: '#6b7280',
+          fontSize: '1.3rem',
+          margin: 0,
+          maxWidth: '600px',
+          marginLeft: 'auto',
+          marginRight: 'auto'
+        }}>Browse and filter reported civic incidents in your area</p>
       </div>
       
-      {/* Reports List */}
+      {/* Enhanced Filters */}
+      <div style={{ 
+        background: 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)',
+        padding: '2rem',
+        borderRadius: '16px',
+        marginBottom: '2rem',
+        border: '1px solid #3b82f6'
+      }}>
+        <h3 style={{ 
+          margin: '0 0 1.5rem 0', 
+          color: '#1d4ed8', 
+          fontWeight: '700',
+          fontSize: '1.3rem',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.5rem'
+        }}>
+          🎛️ Filter Options
+        </h3>
+        <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
+          <div style={{ flex: 1, minWidth: '200px' }}>
+            <label style={{ display: 'block', fontWeight: '600', color: '#374151', marginBottom: '0.5rem' }}>
+              📍 Location
+            </label>
+            <select
+              value={selectedLocation}
+              onChange={(e) => setSelectedLocation(e.target.value)}
+              style={selectStyle}
+              onFocus={(e) => {
+                e.target.style.borderColor = '#3b82f6';
+                e.target.style.backgroundColor = '#ffffff';
+              }}
+              onBlur={(e) => {
+                e.target.style.borderColor = '#e5e7eb';
+                e.target.style.backgroundColor = '#f9fafb';
+              }}
+            >
+              <option value="all">All Locations</option>
+              <option value="MG Road">📍 MG Road</option>
+              <option value="Koramangala">📍 Koramangala</option>
+              <option value="HSR Layout">📍 HSR Layout</option>
+              <option value="Indiranagar">📍 Indiranagar</option>
+              <option value="Whitefield">📍 Whitefield</option>
+              <option value="Jayanagar">📍 Jayanagar</option>
+              <option value="BTM Layout">📍 BTM Layout</option>
+              <option value="Electronic City">📍 Electronic City</option>
+            </select>
+          </div>
+          
+          <div style={{ flex: 1, minWidth: '200px' }}>
+            <label style={{ display: 'block', fontWeight: '600', color: '#374151', marginBottom: '0.5rem' }}>
+              🏷️ Category
+            </label>
+            <select
+              value={selectedCategory}
+              onChange={(e) => setSelectedCategory(e.target.value)}
+              style={selectStyle}
+              onFocus={(e) => {
+                e.target.style.borderColor = '#3b82f6';
+                e.target.style.backgroundColor = '#ffffff';
+              }}
+              onBlur={(e) => {
+                e.target.style.borderColor = '#e5e7eb';
+                e.target.style.backgroundColor = '#f9fafb';
+              }}
+            >
+              <option value="all">All Categories</option>
+              <option value="pothole">🛣️ Pothole</option>
+              <option value="garbage">🗑️ Garbage</option>
+              <option value="water logging">🌊 Water Logging</option>
+              <option value="dog bites">🐕 Dog Bites</option>
+              <option value="electricity cut">⚡ Electricity Cut</option>
+            </select>
+          </div>
+          
+          <button
+            onClick={fetchBackendReports}
+            disabled={loading}
+            style={{
+              padding: '1rem 2rem',
+              background: loading 
+                ? 'linear-gradient(135deg, #9ca3af 0%, #6b7280 100%)'
+                : 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)',
+              color: 'white',
+              border: 'none',
+              borderRadius: '12px',
+              cursor: loading ? 'not-allowed' : 'pointer',
+              fontWeight: '600',
+              fontSize: '1rem',
+              transition: 'all 0.3s ease',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              alignSelf: 'end'
+            }}
+            onMouseEnter={(e) => {
+              if (!loading) {
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.boxShadow = '0 10px 25px -5px rgba(59, 130, 246, 0.4)';
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (!loading) {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
+              }
+            }}
+          >
+            {loading ? (
+              <>
+                <span style={{ animation: 'spin 1s linear infinite' }}>⏳</span>
+                Refreshing...
+              </>
+            ) : (
+              <>
+                🔄 Refresh
+              </>
+            )}
+          </button>
+        </div>
+      </div>
+      
+      {/* Enhanced Reports List */}
       {loading ? (
-        <div style={{ padding: '2rem', textAlign: 'center', backgroundColor: '#f8f9fa', borderRadius: '8px' }}>
-          <p>🔄 Loading incidents from backend...</p>
+        <div style={{ 
+          padding: '3rem', 
+          textAlign: 'center', 
+          background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)', 
+          borderRadius: '16px',
+          border: '2px solid #0ea5e9'
+        }}>
+          <div style={{ 
+            fontSize: '3rem', 
+            marginBottom: '1rem',
+            animation: 'spin 2s linear infinite'
+          }}>🔄</div>
+          <p style={{ 
+            fontSize: '1.2rem', 
+            color: '#0369a1',
+            fontWeight: '600',
+            margin: '0'
+          }}>Loading incidents from backend...</p>
         </div>
       ) : filteredReports.length === 0 ? (
-        <div style={{ padding: '2rem', textAlign: 'center', backgroundColor: '#f8f9fa', borderRadius: '8px' }}>
-          <p>📋 No incidents found</p>
-          <p>Try changing filters or switch to "Report Incident" tab to add one!</p>
+        <div style={{ 
+          padding: '3rem', 
+          textAlign: 'center', 
+          background: 'linear-gradient(135deg, #fefce8 0%, #fef3c7 100%)', 
+          borderRadius: '16px',
+          border: '2px solid #f59e0b'
+        }}>
+          <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>📋</div>
+          <h3 style={{ 
+            margin: '0 0 1rem 0', 
+            color: '#92400e',
+            fontWeight: '700',
+            fontSize: '1.5rem'
+          }}>No incidents found</h3>
+          <p style={{ 
+            margin: '0',
+            color: '#a16207',
+            fontSize: '1.1rem'
+          }}>Try changing filters or switch to "Report Incident" tab to add one!</p>
         </div>
       ) : (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-          {filteredReports.map((report) => (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+          <div style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            marginBottom: '1rem'
+          }}>
+            <h3 style={{ 
+              margin: 0,
+              color: '#374151',
+              fontSize: '1.3rem',
+              fontWeight: '700'
+            }}>
+              📊 Found {filteredReports.length} incident{filteredReports.length !== 1 ? 's' : ''}
+            </h3>
+          </div>
+          
+          {filteredReports.map((report, index) => (
             <div
               key={report.id}
               style={{
-                padding: '1rem',
-                border: '1px solid #dee2e6',
-                borderRadius: '8px',
-                backgroundColor: 'white'
+                padding: '2rem',
+                background: 'linear-gradient(135deg, #ffffff 0%, #f9fafb 100%)',
+                borderRadius: '16px',
+                border: '1px solid #e5e7eb',
+                boxShadow: '0 4px 15px rgba(0, 0, 0, 0.05)',
+                transition: 'all 0.3s ease',
+                cursor: 'pointer',
+                animation: `fadeIn 0.6s ease-out ${index * 0.1}s both`
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-5px)';
+                e.currentTarget.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.1)';
+                e.currentTarget.style.borderColor = getSeverityColor(report.severity);
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.05)';
+                e.currentTarget.style.borderColor = '#e5e7eb';
               }}
             >
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: '0.5rem' }}>
-                <h4 style={{ margin: '0', color: '#333' }}>{report.title}</h4>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: '1rem' }}>
+                <h4 style={{ 
+                  margin: '0', 
+                  color: '#111827',
+                  fontSize: '1.3rem',
+                  fontWeight: '700',
+                  flex: 1
+                }}>{report.title}</h4>
                 <span
                   style={{
-                    padding: '0.25rem 0.5rem',
-                    borderRadius: '12px',
-                    fontSize: '0.75rem',
-                    color: 'white',
-                    backgroundColor: getSeverityColor(report.severity)
+                    padding: '0.5rem 1rem',
+                    borderRadius: '20px',
+                    fontSize: '0.8rem',
+                    fontWeight: '700',
+                    color: getSeverityColor(report.severity),
+                    background: getSeverityBg(report.severity),
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.5px',
+                    marginLeft: '1rem'
                   }}
                 >
-                  {report.severity.toUpperCase()}
+                  {report.severity}
                 </span>
               </div>
-              <p style={{ margin: '0.5rem 0', color: '#666' }}>{report.description}</p>
-              <div style={{ display: 'flex', gap: '1rem', fontSize: '0.875rem', color: '#6c757d' }}>
-                <span>📍 {report.locationDisplay || report.location}</span>
-                <span>🏷️ {report.category}</span>
-                <span>📅 {new Date(report.timestamp).toLocaleString()}</span>
+              
+              <p style={{ 
+                margin: '0 0 1.5rem 0', 
+                color: '#4b5563',
+                fontSize: '1rem',
+                lineHeight: '1.6'
+              }}>{report.description}</p>
+              
+              <div style={{ 
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+                gap: '1rem',
+                padding: '1rem',
+                background: 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)',
+                borderRadius: '12px'
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <span style={{ fontSize: '1.2rem' }}>📍</span>
+                  <span style={{ color: '#374151', fontWeight: '600' }}>
+                    {report.locationDisplay || report.location}
+                  </span>
+                </div>
+                
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <span style={{ fontSize: '1.2rem' }}>🏷️</span>
+                  <span style={{ color: '#374151', fontWeight: '600' }}>
+                    {report.category}
+                  </span>
+                </div>
+                
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <span style={{ fontSize: '1.2rem' }}>📅</span>
+                  <span style={{ color: '#6b7280', fontSize: '0.9rem' }}>
+                    {new Date(report.timestamp).toLocaleDateString()} at {new Date(report.timestamp).toLocaleTimeString()}
+                  </span>
+                </div>
               </div>
             </div>
           ))}
