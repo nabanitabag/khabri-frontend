@@ -1,8 +1,25 @@
+/* Global background fix - override index.css */
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  min-height: 100vh !important;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 25%, #f1f3f4 75%, #ffffff 100%) !important;
+  background-attachment: fixed !important;
+  display: block !important;
+  place-items: unset !important;
+}
+
+:root {
+  background-color: transparent !important;
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 25%, #f1f3f4 75%, #ffffff 100%);
 }
 
 .logo {
@@ -241,8 +258,17 @@ body {
 
   /* Login page mobile adjustments */
   .login-container {
+    grid-template-columns: 1fr !important;
+    max-width: 500px !important;
+  }
+
+  .login-left-panel {
+    display: none !important;
+  }
+
+  .login-right-panel {
     padding: 2rem !important;
-    margin: 1rem !important;
+    border-radius: 24px !important;
   }
 
   .login-title {

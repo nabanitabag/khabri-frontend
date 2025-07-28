@@ -1,4 +1,5 @@
 # 🎯 Khabri - Civic Incident Reporting Platform
+![img.png](img.png)
 
 > **Your Civic Voice Matters** - A modern, responsive web application for reporting and tracking civic incidents in your community.
 

@@ -37,44 +37,82 @@ const SimpleLogin = () => {
       padding: '2rem',
       fontFamily: "'Google Sans', 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
     }}>
-      <div style={{
-        background: 'rgba(255, 255, 255, 0.95)',
-        backdropFilter: 'blur(20px)',
-        borderRadius: '24px',
-        padding: '3rem',
+            <div className="login-container" style={{
+        display: 'grid',
+        gridTemplateColumns: '1fr 1fr',
+        maxWidth: '1200px',
         width: '100%',
-        maxWidth: '400px',
+        gap: '0',
+        borderRadius: '24px',
+        overflow: 'hidden',
         boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-        border: '1px solid rgba(255, 255, 255, 0.2)',
         animation: 'slideUp 0.6s ease-out'
       }}>
-        <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-          <div style={{ 
-            fontSize: '3rem', 
-            marginBottom: '1rem',
-            animation: 'bounce 2s infinite'
-          }}>🎯</div>
-          <h1 style={{ 
-            fontSize: '2.5rem',
-            background: 'linear-gradient(45deg, #4285f4 0%, #ea4335 25%, #fbbc04 50%, #34a853 75%, #4285f4 100%)',
-            backgroundClip: 'text',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            margin: '0 0 0.5rem 0',
-            fontWeight: '700'
+        {/* Left Panel - Branding */}
+        <div className="login-left-panel" style={{
+          background: 'linear-gradient(135deg, #4285f4 0%, #ea4335 50%, #34a853 100%)',
+          padding: '4rem',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          color: 'white',
+          textAlign: 'center'
+        }}>
+          <h1 style={{
+            fontSize: '4rem',
+            fontWeight: '700',
+            margin: '0 0 2rem 0',
+            textShadow: '0 2px 4px rgba(0,0,0,0.1)'
           }}>Khabri</h1>
-          <p style={{ 
-            color: '#6b7280',
-            fontSize: '1.1rem',
-            margin: 0,
-            fontWeight: '500'
+          <p style={{
+            fontSize: '1.5rem',
+            margin: '0 0 3rem 0',
+            opacity: 0.95,
+            fontWeight: '400'
           }}>Your Civic Voice Matters</p>
+          <div style={{
+            padding: '2rem',
+            background: 'rgba(255, 255, 255, 0.15)',
+            borderRadius: '16px',
+            backdropFilter: 'blur(10px)',
+            border: '1px solid rgba(255, 255, 255, 0.2)'
+          }}>
+            <h3 style={{ margin: '0 0 1rem 0', fontSize: '1.3rem' }}>Civic Engagement Platform</h3>
+            <p style={{ margin: 0, fontSize: '1rem', opacity: 0.9 }}>
+              Report incidents, track progress, and help build better communities through technology.
+            </p>
+          </div>
         </div>
+
+        {/* Right Panel - Login Form */}
+        <div className="login-right-panel" style={{
+          background: 'rgba(255, 255, 255, 0.95)',
+          backdropFilter: 'blur(20px)',
+          padding: '4rem',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center'
+        }}>
+          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <h2 style={{ 
+              fontSize: '2.5rem',
+              color: '#374151',
+              margin: '0 0 0.5rem 0',
+              fontWeight: '700'
+            }}>Welcome Back</h2>
+            <p style={{ 
+              color: '#6b7280',
+              fontSize: '1.1rem',
+              margin: 0,
+              fontWeight: '400'
+            }}>Sign in to your account</p>
+          </div>
         
         <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
           <div style={{ position: 'relative' }}>
             <input
-              type="email"
+                            type="email"
               placeholder="Email Address"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -89,12 +127,12 @@ const SimpleLogin = () => {
                 outline: 'none',
                 boxSizing: 'border-box'
               }}
-                             onFocus={(e) => {
-                 e.target.style.borderColor = '#4285f4';
-                 e.target.style.backgroundColor = '#ffffff';
-                 e.target.style.transform = 'translateY(-2px)';
-                 e.target.style.boxShadow = '0 10px 25px -5px rgba(66, 133, 244, 0.2)';
-               }}
+              onFocus={(e) => {
+                e.target.style.borderColor = '#4285f4';
+                e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                e.target.style.transform = 'translateY(-2px)';
+                e.target.style.boxShadow = '0 10px 25px -5px rgba(66, 133, 244, 0.2)';
+              }}
                onBlur={(e) => {
                  e.target.style.borderColor = '#e5e7eb';
                  e.target.style.backgroundColor = '#f9fafb';
@@ -107,27 +145,27 @@ const SimpleLogin = () => {
            
            <div style={{ position: 'relative' }}>
              <input
-               type="password"
-               placeholder="Password"
-               value={password}
-               onChange={(e) => setPassword(e.target.value)}
-               style={{ 
-                 width: '100%',
-                 padding: '1rem 1.25rem',
-                 borderRadius: '12px',
-                 border: '2px solid #e5e7eb',
-                 fontSize: '1rem',
-                 transition: 'all 0.3s ease',
-                 backgroundColor: '#f9fafb',
-                 outline: 'none',
-                 boxSizing: 'border-box'
-               }}
-               onFocus={(e) => {
-                 e.target.style.borderColor = '#4285f4';
-                 e.target.style.backgroundColor = '#ffffff';
-                 e.target.style.transform = 'translateY(-2px)';
-                 e.target.style.boxShadow = '0 10px 25px -5px rgba(66, 133, 244, 0.2)';
-               }}
+                             type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              style={{ 
+                width: '100%',
+                padding: '1rem 1.25rem',
+                borderRadius: '12px',
+                border: '2px solid #e5e7eb',
+                fontSize: '1rem',
+                transition: 'all 0.3s ease',
+                backgroundColor: '#f9fafb',
+                outline: 'none',
+                boxSizing: 'border-box'
+              }}
+              onFocus={(e) => {
+                e.target.style.borderColor = '#4285f4';
+                e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                e.target.style.transform = 'translateY(-2px)';
+                e.target.style.boxShadow = '0 10px 25px -5px rgba(66, 133, 244, 0.2)';
+              }}
               onBlur={(e) => {
                 e.target.style.borderColor = '#e5e7eb';
                 e.target.style.backgroundColor = '#f9fafb';
@@ -178,25 +216,29 @@ const SimpleLogin = () => {
           </button>
         </form>
         
-        <div style={{ 
+                <div style={{ 
           textAlign: 'center', 
           marginTop: '2rem',
           padding: '1.5rem',
-                     backgroundColor: '#e8f0fe',
-           borderRadius: '12px',
-           border: '1px solid #4285f4'
+          backgroundColor: 'rgba(255, 255, 255, 0.15)',
+          borderRadius: '12px',
+          border: '1px solid rgba(255, 255, 255, 0.3)',
+          backdropFilter: 'blur(10px)'
         }}>
-          <p style={{ 
+                    <p style={{ 
             margin: '0 0 0.5rem 0',
-                         color: '#4285f4',
+            color: 'white',
             fontWeight: '600',
-            fontSize: '0.9rem'
-          }}>🌟 Demo Credentials</p>
+            fontSize: '0.9rem',
+            textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)'
+          }}>Demo Credentials</p>
           <p style={{ 
             margin: 0,
-            color: '#6b7280',
-            fontSize: '0.8rem'
+            color: 'rgba(255, 255, 255, 0.9)',
+            fontSize: '0.8rem',
+            textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)'
           }}>Any valid email format works!</p>
+        </div>
         </div>
       </div>
     </div>
@@ -218,12 +260,12 @@ const SimpleDashboard = () => {
   return (
     <div style={{ 
       minHeight: '100vh',
-      background: 'linear-gradient(135deg, #f8f9fa 0%, #e8f0fe 50%, #fef7e0 100%)',
+      background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 25%, #f1f3f4 75%, #ffffff 100%)',
       fontFamily: "'Google Sans', 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
     }}>
       {/* Enhanced Header */}
       <header style={{ 
-        background: 'rgba(255, 255, 255, 0.95)',
+        background: 'rgba(255, 255, 255, 0.9)',
         backdropFilter: 'blur(20px)',
         borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
         padding: '1.5rem 2rem',
@@ -235,31 +277,24 @@ const SimpleDashboard = () => {
         top: 0,
         zIndex: 100
       }}>
-        <div className="header-content" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          <div style={{ 
+                <div className="header-content" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <h1 className="header-title" style={{ 
+            margin: 0,
             fontSize: '2rem',
-            animation: 'bounce 2s infinite'
-          }}>🏠</div>
-                     <h1 className="header-title" style={{ 
-             margin: 0,
-             fontSize: '2rem',
-             background: 'linear-gradient(135deg, #4285f4 0%, #ea4335 25%, #fbbc04 50%, #34a853 75%)',
-             backgroundClip: 'text',
-             WebkitBackgroundClip: 'text',
-             WebkitTextFillColor: 'transparent',
-             fontWeight: '700'
-           }}>Khabri Dashboard</h1>
+            color: '#374151',
+            fontWeight: '700'
+          }}>Khabri Dashboard</h1>
         </div>
         
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                     <div style={{
-             padding: '0.5rem 1rem',
-             backgroundColor: '#e8f0fe',
-             borderRadius: '20px',
-             border: '1px solid #4285f4'
-           }}>
-             <span style={{ color: '#4285f4', fontWeight: '600', fontSize: '0.9rem' }}>
-              👤 {currentUser?.displayName}
+                               <div style={{
+            padding: '0.5rem 1rem',
+            backgroundColor: '#f3f4f6',
+            borderRadius: '20px',
+            border: '1px solid #d1d5db'
+          }}>
+            <span style={{ color: '#374151', fontWeight: '600', fontSize: '0.9rem' }}>
+              {currentUser?.displayName}
             </span>
           </div>
           
@@ -284,9 +319,9 @@ const SimpleDashboard = () => {
               e.currentTarget.style.transform = 'translateY(0)';
               e.currentTarget.style.boxShadow = 'none';
             }}
-          >
-            🚪 Logout
-          </button>
+                     >
+             Logout
+           </button>
         </div>
       </header>
 
@@ -298,12 +333,12 @@ const SimpleDashboard = () => {
       }}>
         {/* Welcome Card */}
         <div className="welcome-card" style={{ 
-          background: 'linear-gradient(135deg, #4285f4 0%, #34a853 50%, #fbbc04 100%)',
+          background: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)',
           borderRadius: '20px',
           padding: '3rem',
           marginBottom: '2rem',
           color: 'white',
-          boxShadow: '0 20px 40px -10px rgba(66, 133, 244, 0.3)',
+          boxShadow: '0 20px 40px -10px rgba(99, 102, 241, 0.3)',
           position: 'relative',
           overflow: 'hidden'
         }}>
@@ -329,13 +364,13 @@ const SimpleDashboard = () => {
                 margin: '0 0 1rem 0',
                 fontSize: '2.5rem',
                 fontWeight: '700'
-              }}>Welcome back, {currentUser?.displayName}! 👋</h2>
+              }}>Welcome back, {currentUser?.displayName}!</h2>
               <p style={{ 
                 margin: '0 0 0.5rem 0',
                 fontSize: '1.2rem',
                 opacity: 0.9,
                 fontWeight: '400'
-              }}>📧 {currentUser?.email}</p>
+              }}>{currentUser?.email}</p>
               <p style={{ 
                 margin: '0',
                 fontSize: '1.1rem',
@@ -350,8 +385,7 @@ const SimpleDashboard = () => {
               textAlign: 'center',
               backdropFilter: 'blur(10px)'
             }}>
-              <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>🏙️</div>
-              <p style={{ margin: 0, fontSize: '0.9rem', opacity: 0.9 }}>Civic Dashboard</p>
+              <p style={{ margin: 0, fontSize: '1.2rem', opacity: 0.9, fontWeight: '600' }}>Civic Dashboard</p>
             </div>
           </div>
         </div>
@@ -364,9 +398,9 @@ const SimpleDashboard = () => {
           marginBottom: '3rem'
         }}>
           {[
-            { key: 'report', icon: '📝', label: 'Report Incident', color: '#34a853', desc: 'Submit new civic issues' },
-            { key: 'query', icon: '🔍', label: 'View Incidents', color: '#4285f4', desc: 'Browse reported incidents' },
-            { key: 'aggregated', icon: '📊', label: 'Global Reports', color: '#ea4335', desc: 'View analytics & trends' }
+            { key: 'report', icon: '', label: 'Report Incident', color: '#34a853', desc: 'Submit new civic issues' },
+            { key: 'query', icon: '', label: 'View Incidents', color: '#4285f4', desc: 'Browse reported incidents' },
+            { key: 'aggregated', icon: '', label: 'Analytics', color: '#ea4335', desc: 'View reports & trends' }
           ].map((tab) => (
             <button
               key={tab.key}
@@ -375,9 +409,9 @@ const SimpleDashboard = () => {
                 padding: '2rem',
                 background: activeTab === tab.key 
                   ? `linear-gradient(135deg, ${tab.color} 0%, ${tab.color}dd 100%)`
-                  : 'rgba(255, 255, 255, 0.9)',
+                  : 'rgba(255, 255, 255, 0.7)',
                 color: activeTab === tab.key ? 'white' : '#374151',
-                border: activeTab === tab.key ? 'none' : '2px solid #e5e7eb',
+                border: activeTab === tab.key ? 'none' : '2px solid rgba(0, 0, 0, 0.1)',
                 borderRadius: '20px',
                 cursor: 'pointer',
                 fontWeight: '600',
@@ -400,34 +434,37 @@ const SimpleDashboard = () => {
                   e.currentTarget.style.borderColor = tab.color;
                 }
               }}
-              onMouseLeave={(e) => {
-                if (activeTab !== tab.key) {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.08)';
-                  e.currentTarget.style.borderColor = '#e5e7eb';
-                }
-              }}
-            >
-              <span style={{ fontSize: '2.5rem' }}>{tab.icon}</span>
-              <div>
-                <div style={{ fontWeight: '700', marginBottom: '0.5rem' }}>{tab.label}</div>
-                <div style={{ 
-                  fontSize: '0.9rem', 
-                  opacity: activeTab === tab.key ? 0.9 : 0.7,
-                  fontWeight: '400'
-                }}>{tab.desc}</div>
-              </div>
-            </button>
+                             onMouseLeave={(e) => {
+                 if (activeTab !== tab.key) {
+                   e.currentTarget.style.transform = 'translateY(0)';
+                   e.currentTarget.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.08)';
+                   e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.1)';
+                 }
+               }}
+                          >
+                <div>
+                  <div style={{ 
+                    fontWeight: '700', 
+                    marginBottom: '0.5rem', 
+                    fontSize: '1.2rem'
+                  }}>{tab.label}</div>
+                  <div style={{ 
+                    fontSize: '0.9rem', 
+                    opacity: activeTab === tab.key ? 0.9 : 0.7,
+                    fontWeight: '400'
+                  }}>{tab.desc}</div>
+                </div>
+              </button>
           ))}
         </div>
 
         {/* Enhanced Content Area */}
         <div className="content-area" style={{
-          background: 'rgba(255, 255, 255, 0.95)',
+          background: 'rgba(255, 255, 255, 0.8)',
           borderRadius: '24px',
           padding: '3rem',
           backdropFilter: 'blur(20px)',
-          border: '1px solid rgba(255, 255, 255, 0.2)',
+          border: '1px solid rgba(0, 0, 0, 0.1)',
           boxShadow: '0 25px 50px rgba(0, 0, 0, 0.08)',
           minHeight: '600px'
         }}>
@@ -565,7 +602,7 @@ const ReportSection = ({ onReportSubmit }: { onReportSubmit: (report: any) => vo
 
   const focusStyle = {
     borderColor: '#34a853',
-    backgroundColor: '#ffffff',
+    backgroundColor: 'rgba(255, 255, 255, 0.95)',
     transform: 'translateY(-2px)',
     boxShadow: '0 10px 25px -5px rgba(52, 168, 83, 0.2)'
   };
@@ -581,7 +618,7 @@ const ReportSection = ({ onReportSubmit }: { onReportSubmit: (report: any) => vo
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
           fontWeight: '700'
-        }}>📝 Report New Incident</h2>
+        }}>Report New Incident</h2>
         <p style={{ 
           color: '#6b7280',
           fontSize: '1.3rem',
@@ -603,7 +640,6 @@ const ReportSection = ({ onReportSubmit }: { onReportSubmit: (report: any) => vo
           border: '2px solid #10b981',
           animation: 'slideUp 0.5s ease-out'
         }}>
-          <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>🎉</div>
           <strong>Incident reported successfully!</strong>
           <p style={{ margin: '0.5rem 0 0 0', opacity: 0.8 }}>
             Your report has been submitted to the backend system.
@@ -615,7 +651,7 @@ const ReportSection = ({ onReportSubmit }: { onReportSubmit: (report: any) => vo
         {/* Top row - Title spans full width */}
         <div>
           <label style={{ display: 'block', fontWeight: '600', color: '#374151', marginBottom: '0.75rem', fontSize: '1.1rem' }}>
-            📝 Incident Title
+            Incident Title
           </label>
           <input
             type="text"
@@ -633,7 +669,7 @@ const ReportSection = ({ onReportSubmit }: { onReportSubmit: (report: any) => vo
         <div className="form-three-columns" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '2rem' }}>
           <div>
             <label style={{ display: 'block', fontWeight: '600', color: '#374151', marginBottom: '0.75rem', fontSize: '1.1rem' }}>
-              🏷️ Category
+              Category
             </label>
             <select
               value={category}
@@ -652,7 +688,7 @@ const ReportSection = ({ onReportSubmit }: { onReportSubmit: (report: any) => vo
           
           <div>
             <label style={{ display: 'block', fontWeight: '600', color: '#374151', marginBottom: '0.75rem', fontSize: '1.1rem' }}>
-              📍 Location
+              Location
             </label>
             <select
               value={location}
@@ -674,7 +710,7 @@ const ReportSection = ({ onReportSubmit }: { onReportSubmit: (report: any) => vo
           
           <div>
             <label style={{ display: 'block', fontWeight: '600', color: '#374151', marginBottom: '0.75rem', fontSize: '1.1rem' }}>
-              ⚡ Severity
+              Severity
             </label>
             <select
               value={severity}
@@ -693,7 +729,7 @@ const ReportSection = ({ onReportSubmit }: { onReportSubmit: (report: any) => vo
         {/* Description row */}
         <div>
           <label style={{ display: 'block', fontWeight: '600', color: '#374151', marginBottom: '0.75rem', fontSize: '1.1rem' }}>
-            📝 Description
+            Description
           </label>
           <textarea
             placeholder="Provide a detailed description of the incident, including any relevant context or urgency..."
@@ -727,7 +763,6 @@ const ReportSection = ({ onReportSubmit }: { onReportSubmit: (report: any) => vo
           e.currentTarget.style.transform = 'translateY(0)';
           e.currentTarget.style.boxShadow = 'none';
         }}>
-          <div style={{ fontSize: '4rem', marginBottom: '1.5rem' }}>📷</div>
           <h3 style={{ margin: '0 0 1.5rem 0', color: '#34a853', fontWeight: '700', fontSize: '1.5rem' }}>Attach Photos/Videos *</h3>
           <p style={{ margin: '0 0 2rem 0', color: '#6b7280', fontSize: '1.1rem', maxWidth: '500px', marginLeft: 'auto', marginRight: 'auto' }}>
             Upload clear photos or videos that show the incident. Multiple files help provide better context.
@@ -743,7 +778,7 @@ const ReportSection = ({ onReportSubmit }: { onReportSubmit: (report: any) => vo
               padding: '1.5rem',
               borderRadius: '16px',
               border: '3px solid #34a853',
-              background: 'white',
+              background: 'rgba(255, 255, 255, 0.95)',
               fontSize: '1.1rem',
               cursor: 'pointer',
               margin: '0 auto',
@@ -752,18 +787,18 @@ const ReportSection = ({ onReportSubmit }: { onReportSubmit: (report: any) => vo
             required
           />
           {selectedFiles && selectedFiles.length > 0 ? (
-            <div style={{ 
+                        <div style={{ 
               marginTop: '2rem',
               padding: '1.5rem',
-              backgroundColor: 'white',
+              backgroundColor: 'rgba(255, 255, 255, 0.9)',
               borderRadius: '16px',
-                             border: '2px solid #34a853',
-               maxWidth: '600px',
-               margin: '2rem auto 0'
-             }}>
-               <p style={{ margin: '0', color: '#137333', fontSize: '1.3rem', fontWeight: '700' }}>
-                ✅ {selectedFiles.length} file(s) selected
-              </p>
+              border: '2px solid #34a853',
+              maxWidth: '600px',
+              margin: '2rem auto 0'
+            }}>
+                              <p style={{ margin: '0', color: '#137333', fontSize: '1.3rem', fontWeight: '700' }}>
+                 {selectedFiles.length} file(s) selected
+               </p>
               <p style={{ margin: '0.75rem 0 0 0', color: '#6b7280', fontSize: '1rem' }}>
                 Ready to upload with your report!
               </p>
@@ -811,15 +846,14 @@ const ReportSection = ({ onReportSubmit }: { onReportSubmit: (report: any) => vo
             }}
           >
             {submitting ? (
-              <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem' }}>
-                <span style={{ animation: 'spin 1s linear infinite', fontSize: '1.8rem' }}>⏳</span>
-                Submitting Report...
-              </span>
-            ) : (
-              <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem' }}>
-                🚀 Submit Report
-              </span>
-            )}
+                             <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem' }}>
+                 Submitting Report...
+               </span>
+             ) : (
+               <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem' }}>
+                 Submit Report
+               </span>
+             )}
           </button>
         </div>
       </form>
@@ -941,7 +975,7 @@ const QuerySection = ({ reports }: { reports: any[] }) => {
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
           fontWeight: '700'
-        }}>🔍 View Incidents</h2>
+        }}>View Incidents</h2>
         <p style={{ 
           color: '#6b7280',
           fontSize: '1.3rem',
@@ -969,12 +1003,12 @@ const QuerySection = ({ reports }: { reports: any[] }) => {
           alignItems: 'center',
           gap: '0.5rem'
         }}>
-          🎛️ Filter Options
+          Filter Options
         </h3>
         <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
           <div style={{ flex: 1, minWidth: '200px' }}>
             <label style={{ display: 'block', fontWeight: '600', color: '#374151', marginBottom: '0.5rem' }}>
-              📍 Location
+              Location
             </label>
             <select
               value={selectedLocation}
@@ -982,7 +1016,7 @@ const QuerySection = ({ reports }: { reports: any[] }) => {
               style={selectStyle}
               onFocus={(e) => {
                 e.target.style.borderColor = '#3b82f6';
-                e.target.style.backgroundColor = '#ffffff';
+                e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
               }}
               onBlur={(e) => {
                 e.target.style.borderColor = '#e5e7eb';
@@ -1003,7 +1037,7 @@ const QuerySection = ({ reports }: { reports: any[] }) => {
           
           <div style={{ flex: 1, minWidth: '200px' }}>
             <label style={{ display: 'block', fontWeight: '600', color: '#374151', marginBottom: '0.5rem' }}>
-              🏷️ Category
+              Category
             </label>
             <select
               value={selectedCategory}
@@ -1011,7 +1045,7 @@ const QuerySection = ({ reports }: { reports: any[] }) => {
               style={selectStyle}
               onFocus={(e) => {
                 e.target.style.borderColor = '#3b82f6';
-                e.target.style.backgroundColor = '#ffffff';
+                e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
               }}
               onBlur={(e) => {
                 e.target.style.borderColor = '#e5e7eb';
@@ -1060,16 +1094,7 @@ const QuerySection = ({ reports }: { reports: any[] }) => {
               }
             }}
           >
-            {loading ? (
-              <>
-                <span style={{ animation: 'spin 1s linear infinite' }}>⏳</span>
-                Refreshing...
-              </>
-            ) : (
-              <>
-                🔄 Refresh
-              </>
-            )}
+            {loading ? 'Refreshing...' : 'Refresh'}
           </button>
         </div>
       </div>
@@ -1139,13 +1164,14 @@ const QuerySection = ({ reports }: { reports: any[] }) => {
               key={report.id}
               style={{
                 padding: '2rem',
-                background: 'linear-gradient(135deg, #ffffff 0%, #f9fafb 100%)',
+                background: 'rgba(255, 255, 255, 0.9)',
                 borderRadius: '16px',
-                border: '1px solid #e5e7eb',
+                border: '1px solid rgba(0, 0, 0, 0.1)',
                 boxShadow: '0 4px 15px rgba(0, 0, 0, 0.05)',
                 transition: 'all 0.3s ease',
                 cursor: 'pointer',
-                animation: `fadeIn 0.6s ease-out ${index * 0.1}s both`
+                animation: `fadeIn 0.6s ease-out ${index * 0.1}s both`,
+                backdropFilter: 'blur(10px)'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-5px)';
